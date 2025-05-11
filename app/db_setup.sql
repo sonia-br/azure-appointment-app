@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS appointments (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     email TEXT NOT NULL,
+    mobile_number TEXT NOT NULL,
     slot_id INTEGER NOT NULL,
     FOREIGN KEY (slot_id) REFERENCES slots(id)
 );
