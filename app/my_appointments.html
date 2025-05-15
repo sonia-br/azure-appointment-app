@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}My Appointments - Appointment Booking{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2 class="mb-4">My Appointments</h2>
+        
+        <div class="mb-4">
+            <form class="row g-3" method="GET">
+                <div class="col-md-4">
+                    <input type="email" class="form-control" name="email" 
+                           placeholder="Enter your email" value="{{ request.args.get('email', '') }}" required>
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary">View My Appointments</button>
+                </div>
+            </form>
+        </div>
+
+        {% if appointments %}
+            <div class="appointments-list">
+                {% for appointment in appointments %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h5 class="card-title">{{ appointment.time }}</h5>
+                                    <p class="card-text">
+                                        <strong>Name:</strong> {{ appointment.name }}<br>
+                                        <strong>Email:</strong> {{ appointment.email }}<br>
+                                        <strong>Phone:</strong> {{ appointment.phone }}
+                                    </p>
+                                    {% if appointment.notes %}
+                                        <p class="card-text">
+                                            <strong>Notes:</strong><br>
+                                            {{ appointment.notes }}
+                                        </p>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <form method="POST" action="{{ url_for('cancel_appointment', appointment_id=appointment.id) }}" 
+                                          onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
+                                        <button type="submit" class="btn btn-danger">Cancel Appointment</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% elif request.args.get('email') %}
+            <div class="alert alert-info">
+                No appointments found for this email address.
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %} 
