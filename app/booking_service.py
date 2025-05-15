@@ -1,8 +1,10 @@
 import sqlite3
+from app.validators import validate_user_input
 
 def connect_db(): #function to open database file booking.db to run sql commands
     
     return sqlite3.connect('booking.db') #returns an object of class Connection
+
 
 def get_available_slots():
     connection = connect_db() #create an object of class Connection, calls function to connect to db
@@ -15,6 +17,7 @@ def get_available_slots():
     
     connection.close()
     return free_slots  #closes connection and returns slots
+
 
 def check_available_slots(slot_id):
     connection = connect_db()
@@ -31,7 +34,11 @@ def check_available_slots(slot_id):
     connection.close()
     return result == 0 #returns true if result is equal to zero, if not zero then retuns false
 
+
 def save_booking(name, email, mobile_number, slot_id):
+
+    name, email, mobile_number = validate_user_input(name, email, mobile_number)
+
     if not check_available_slots(slot_id):
         raise ValueError("This slot is already booked")
     
@@ -45,6 +52,7 @@ def save_booking(name, email, mobile_number, slot_id):
     
     connection.commit()
     connection.close()
+
 
 def book_appointment(name, email, mobile_number, slot_id):
     try:
