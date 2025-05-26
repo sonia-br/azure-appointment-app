@@ -1,13 +1,20 @@
+CREATE TABLE IF NOT EXISTS users(
+    id INT PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    mobile_number TEXT NOT NULL
+)
+
 CREATE TABLE IF NOT EXISTS slots (  
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    time TEXT UNIQUE NOT NULL
+    id INT PRIMARY KEY AUTOINCREMENT,
+    time DATETIME UNIQUE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS appointments (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    email TEXT NOT NULL,
-    mobile_number TEXT NOT NULL,
-    slot_id INTEGER NOT NULL,
-    FOREIGN KEY (slot_id) REFERENCES slots(id)
+    id INT PRIMARY KEY AUTOINCREMENT,
+    user_id INT NOT NULL,
+    slot_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (slot_id) REFERENCES slots(id),
+    UNIQUE (slot_id)
 );
