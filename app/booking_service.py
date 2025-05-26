@@ -45,10 +45,19 @@ def save_booking(name, email, mobile_number, slot_id):
     connection = connect_db()
     cursor = connection.cursor()
 
+    cursor.execute("SELECT id FROM users WHERE email = ?", (email,))
+    user = cursor.fetchone
+
+    if user:
+        user_id = user[0]
+    else:
+        cursor.execute("INSERT INTO users (name, email, mobile_number) VALUES (?,?,?)", (name, email, mobile_number))
+        user_id = cursor.lastrowid
+
     cursor.execute("""
-        INSERT INTO appointments (name, email, mobile_number, slot_id)
-        VALUES (?, ?, ?, ?)
-    """, (name, email, mobile_number, slot_id))
+        INSERT INTO appointments (user_id, slot_id)
+        VALUES (?, ?)
+    """, (user_id, slot_id))
     
     connection.commit()
     connection.close()
