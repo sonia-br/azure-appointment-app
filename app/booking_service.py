@@ -46,7 +46,7 @@ def save_booking(name, email, mobile_number, slot_id):
     cursor = connection.cursor()
 
     cursor.execute("SELECT id FROM users WHERE email = ?", (email,))
-    user = cursor.fetchone
+    user = cursor.fetchone()
 
     if user:
         user_id = user[0]
@@ -63,7 +63,7 @@ def save_booking(name, email, mobile_number, slot_id):
     connection.close()
 
 
-def book_appointment(name, email, mobile_number, slot_id):
+def handle_booking(name, email, mobile_number, slot_id):
     try:
         save_booking(name, email, mobile_number, slot_id)
         return ("Your appointment is booked!")

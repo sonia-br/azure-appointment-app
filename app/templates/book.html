@@ -10,9 +10,12 @@
         <form method="POST" class="needs-validation" novalidate>
             <div class="mb-3">
                 <label for="slot_time" class="form-label">Appointment Time</label>
-                <input type="text" class="form-control" id="slot_time" name="slot_time" 
-                       value="{{ request.args.get('slot_time', '') }}" required readonly>
+                <input type="text" class="form-control" id="slot_time_display" 
+                       value="{{ request.args.get('slot_time', '') }}" readonly>
                 <div class="form-text">Selected time slot</div>
+
+                <input type="hidden" name="slot_time" value="{{ request.args.get('slot_time', '') }}">
+                <input type="hidden" name="slot_id" value="{{ request.args.get('slot_id', '') }}">
             </div>
 
             <div class="mb-3">

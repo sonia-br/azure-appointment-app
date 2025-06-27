@@ -50,12 +50,12 @@ def validate_name(name):
     return True
 
 def validate_email(input):
-    pattern = r"^(?!.*\.\.)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" #pattern name@domain.com
+    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$" #pattern name@domain.com
     email = re.fullmatch(pattern, input) #checks if fully matches pattern
     return bool(email)
     
 def validate_mobile(number):
-    if len(number) == 11:
+    if len(number) <= 12:
         return number[0] == "0" and number[1] == "1" and number.isdigit()
     else:
         return False
