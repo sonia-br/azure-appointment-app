@@ -176,3 +176,6 @@ venv/
 __pycache__/
 *.pyc
 .env
+
+# SQLite database
+booking.db
