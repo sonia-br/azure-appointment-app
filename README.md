@@ -32,7 +32,7 @@ Each developer works in their **own branch** based on their feature area.
 ### Commit Guidelines (Conventional Commits)
 
 Use this format:
-<type>(<scope>): <short description>
+`<type>(<scope>): <short description>`
 
 #### Examples:
 
@@ -49,17 +49,17 @@ Use this format:
 ## Local Setup Instructions
 
 ### 1. Clone the project and install dependencies
-
+```
 git clone <repo-url>
 cd azure-appointment-app
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-
+```
 
 ### Create Local Database
-
+```
 sqlite3 booking.db < app/db_setup.sql
 sqlite3 booking.db < app/test_data.sql
-
+```
 
