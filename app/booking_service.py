@@ -1,9 +1,9 @@
 import sqlite3
-from app.validators import validate_user_input
+from app.validators import validate_user_input, validate_email
 
-def connect_db(): #function to open database file booking.db to run sql commands
+def connect_db(db_path='booking.db'): #function to open database file booking.db to run sql commands
     
-    return sqlite3.connect('booking.db') #returns an object of class Connection
+    return sqlite3.connect(db_path) #returns an object of class Connection
 
 
 def get_available_slots():
@@ -54,13 +54,16 @@ def save_booking(name, email, mobile_number, slot_id):
         cursor.execute("INSERT INTO users (name, email, mobile_number) VALUES (?,?,?)", (name, email, mobile_number))
         user_id = cursor.lastrowid
 
-    cursor.execute("""
-        INSERT INTO appointments (user_id, slot_id)
-        VALUES (?, ?)
-    """, (user_id, slot_id))
-    
-    connection.commit()
-    connection.close()
+    try:
+        cursor.execute("""
+            INSERT INTO appointments (user_id, slot_id)
+            VALUES (?, ?)
+        """, (user_id, slot_id))
+        connection.commit()
+    except sqlite3.IntegrityError:
+        raise ValueError("This slot has just been booked. Please choose another.")
+    finally:
+        connection.close()
 
 
 def handle_booking(name, email, mobile_number, slot_id):
@@ -70,6 +73,42 @@ def handle_booking(name, email, mobile_number, slot_id):
     except ValueError as e: #e stores error object that contain error message from save_booking
         return str(e)
     
+def get_user_appointments(email):
+
+    if not validate_email(email):
+        raise ValueError("Invalid email.")
+
+    connection = connect_db()
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT 
+            appointments.id,
+            slots.time,
+            users.name,
+            users.email,
+            users.mobile_number
+        FROM appointments
+        JOIN users ON appointments.user_id = users.id
+        JOIN slots ON appointments.slot_id = slots.id
+        WHERE LOWER(users.email) = ?
+        ORDER BY slots.time
+    """, (email.lower(),))
+
+    rows = cursor.fetchall()
+    appointments = []
+    for row in rows:
+        appointment = {
+            'id': row[0],
+            'time': row[1],
+            'name': row[2],
+            'email': row[3],
+            'phone': row[4],
+            'notes': None
+        }
+        appointments.append(appointment)
+    connection.close()
+    return appointments
 
 
 

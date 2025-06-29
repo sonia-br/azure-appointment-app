@@ -1,6 +1,6 @@
 from flask import render_template, request, flash, redirect, url_for
 from datetime import datetime, timedelta
-from app.booking_service import get_available_slots, handle_booking
+from app.booking_service import get_available_slots, handle_booking, get_user_appointments, connect_db
 
 def init_routes(app):
     @app.route('/')
@@ -55,8 +55,28 @@ def init_routes(app):
                            slot_time=request.args.get('slot_time', ''),
                            slot_id=request.args.get('slot_id', ''))
 
-    @app.route('/my-appointments')
+    @app.route('/my-appointments', methods=['GET'])
     def my_appointments():
         """View user's appointments"""
         # TODO: Integrate with database to get user's appointments
-        return render_template('my_appointments.html')
+        email = request.args.get('email', '').strip()
+        appointments = None
+        if email:
+            try:
+                appointments = get_user_appointments(email)
+            except ValueError as e:
+                flash(str(e), 'error')
+
+        return render_template('my_appointments.html', appointments=appointments)
+    
+    @app.route('/cancel-appointment/<int:appointment_id>', methods=['POST'])
+    def cancel_appointment(appointment_id):
+        connection = connect_db()
+        cursor = connection.cursor()
+
+        cursor.execute("DELETE FROM appointments WHERE id = ?", (appointment_id,))
+        connection.commit()
+        connection.close()
+
+        flash("Appointment canceled.", "success")
+        return redirect(url_for('my_appointments'))
