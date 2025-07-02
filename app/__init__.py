@@ -1,5 +1,6 @@
 from flask import Flask
 import os
+from .models import db
 
 def create_app():
     app = Flask(__name__, 
@@ -9,6 +10,8 @@ def create_app():
     # Load configuration
     app.config.from_object('config.Config')
     
-    # Register blueprints here if needed
+    db.init_app(app)
+    
+    
     
     return app
