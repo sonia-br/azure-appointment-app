@@ -3,6 +3,15 @@ from datetime import datetime, timedelta
 from .models import db, Slot, Appointment
 
 def init_routes(app):
+    # TODO: Add user authentication (Flask-Login)
+    # TODO: Add admin interface for managing slots and appointments
+    # TODO: Add slot cancellation and rescheduling
+    # TODO: Add email notifications for bookings/cancellations
+    # TODO: Add recurring slot generation
+    # TODO: Add support for slot duration per slot
+    # TODO: Add date field to Slot model for multi-day support
+    # TODO: Add pagination for slots and appointments lists
+
     @app.route('/')
     def index():
         """Home page route"""
@@ -10,8 +19,20 @@ def init_routes(app):
 
     @app.route('/slots')
     def view_slots():
-        """View available appointment slots"""
-        slots = Slot.query.all()
+        """View available appointment slots, filterable by date and time"""
+        # TODO: Update Slot model to include a date field (date = db.Column(db.Date, nullable=False))
+        date_str = request.args.get('date')
+        time_str = request.args.get('time')
+        query = Slot.query
+        if date_str:
+            try:
+                date_obj = datetime.strptime(date_str, '%Y-%m-%d').date()
+                query = query.filter_by(date=date_obj)
+            except ValueError:
+                flash('Invalid date format. Use YYYY-MM-DD.', 'error')
+        if time_str:
+            query = query.filter_by(time=time_str)
+        slots = query.all()
         return render_template('slots.html', slots=slots)
 
     @app.route('/book', methods=['GET', 'POST'])
@@ -40,6 +61,7 @@ def init_routes(app):
             flash('Appointment booked successfully!', 'success')
             return redirect(url_for('index'))
 
+        # TODO: Allow filtering available slots by date for booking
         slots = Slot.query.filter_by(available=True).all()
         return render_template('book.html', slots=slots)
 
@@ -47,6 +69,7 @@ def init_routes(app):
     def my_appointments():
         """View user's appointments"""
         # For demo: get appointments by email from query param
+        # TODO: Link appointments to authenticated user when auth is added
         email = request.args.get('email')
         appointments = []
         if email:
