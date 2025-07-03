@@ -8,15 +8,16 @@
         <h2 class="mb-4">Available Appointment Slots</h2>
         
         <div class="mb-4">
-            <!-- <form class="row g-3" method="GET">
+            <form class="row g-3" method="GET">
                 <div class="col-md-4">
                     <input type="date" class="form-control" name="date" value="{{ request.args.get('date', '') }}">
                 </div>
                 <div class="col-md-4">
                     <button type="submit" class="btn btn-primary">Filter</button>
                 </div>
-            </form> -->
+            </form>
         </div>
+        <p>{{ slots }}</p>
 
         {% if slots %}
             <div class="slots-container">
