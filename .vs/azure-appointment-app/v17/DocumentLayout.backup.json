@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\run.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:run.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\send_email.py||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:send_email.py||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\app\\create_event.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\create_event.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\requirements.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:requirements.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\app\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\reminder_function\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:reminder_function\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\app\\routes.py||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -13,22 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\reminder_function\\function.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:reminder_function\\function.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\reminder_function\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:reminder_function\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\app\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\run.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:run.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\requirements.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:requirements.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\app\\send_email.py||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -42,11 +46,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "send_email.py",
+              "DocumentMoniker": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\send_email.py",
+              "RelativeDocumentMoniker": "send_email.py",
+              "ToolTip": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\send_email.py",
+              "RelativeToolTip": "send_email.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-07-03T15:58:25.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "routes.py",
               "DocumentMoniker": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\app\\routes.py",
               "RelativeDocumentMoniker": "app\\routes.py",
@@ -59,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "function.json",
               "DocumentMoniker": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\reminder_function\\function.json",
               "RelativeDocumentMoniker": "reminder_function\\function.json",
@@ -71,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "__init__.py",
               "DocumentMoniker": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\reminder_function\\__init__.py",
               "RelativeDocumentMoniker": "reminder_function\\__init__.py",
@@ -79,7 +96,8 @@
               "RelativeToolTip": "reminder_function\\__init__.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-05-15T22:22:31.227Z"
+              "WhenOpened": "2025-05-15T22:22:31.227Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -89,25 +107,27 @@
               "RelativeDocumentMoniker": "app\\__init__.py",
               "ToolTip": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\app\\__init__.py",
               "RelativeToolTip": "app\\__init__.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-05-15T22:22:17.859Z"
+              "WhenOpened": "2025-05-15T22:22:17.859Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "run.py",
               "DocumentMoniker": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\run.py",
               "RelativeDocumentMoniker": "run.py",
               "ToolTip": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\run.py",
               "RelativeToolTip": "run.py",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-05-15T22:20:04.11Z"
+              "WhenOpened": "2025-05-15T22:20:04.11Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "requirements.txt",
               "DocumentMoniker": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\requirements.txt",
               "RelativeDocumentMoniker": "requirements.txt",
@@ -115,24 +135,25 @@
               "RelativeToolTip": "requirements.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-15T22:19:55.648Z"
+              "WhenOpened": "2025-05-15T22:19:55.648Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "create_event.py",
               "DocumentMoniker": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\app\\create_event.py",
               "RelativeDocumentMoniker": "app\\create_event.py",
               "ToolTip": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\app\\create_event.py",
               "RelativeToolTip": "app\\create_event.py",
-              "ViewState": "AgIAACUAAAAAAAAAAAAUwBUAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
               "WhenOpened": "2025-05-15T22:18:36.256Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "send_email.py",
               "DocumentMoniker": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\app\\send_email.py",
               "RelativeDocumentMoniker": "app\\send_email.py",
