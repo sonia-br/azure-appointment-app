@@ -21,6 +21,8 @@ class Config:
     # this needs do be updated?
     SQLALCHEMY_DATABASE_URI = get_secret('DATABASE-URL', 'sqlite:///booking.db') 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    print("DB URI:", SQLALCHEMY_DATABASE_URI)
+
     
     # Email configuration
     MAIL_SERVER = 'smtp.gmail.com'
