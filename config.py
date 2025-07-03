@@ -1,9 +1,24 @@
 import os
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
+
+KEY_VAULT_URL = "https://appointment-kv.vault.azure.net/"
+
+# using managed identity
+credential = DefaultAzureCredential()
+client = SecretClient(vault_url=KEY_VAULT_URL, credential=credential)
+
+def get_secret(name, default=None):
+    try:
+        return client.get_secret(name).value
+    except Exception:
+        return default
+    
 
 class Config:
     """Base configuration."""
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-key-please-change-in-production')
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///booking.db')
+    SECRET_KEY = get_secret('SECRET_KEY', 'dev-key-please-change-in-production')
+    SQLALCHEMY_DATABASE_URI = get_secret('DATABASE_URL', 'sqlite:///booking.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     # Email configuration
