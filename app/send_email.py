@@ -1,48 +1,58 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+#This is a sign that its the right file.
+
 import os
 import logging
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Email, Content
+
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
 
+# Azure-native logging (optional enhancement)
+logger = logging.getLogger("azure.email")
+logging.basicConfig(level=logging.INFO)
+
+def get_sendgrid_api_key():
+    """Fetch SendGrid API key from env or Azure Key Vault."""
+    api_key = os.environ.get("SENDGRID_API_KEY")
+    if api_key:
+        logger.info("Using SendGrid API key from environment.")
+        return api_key
+
+    key_vault_url = os.environ.get("KEY_VAULT_URL")
+    if not key_vault_url:
+        raise ValueError("SENDGRID_API_KEY not found and KEY_VAULT_URL not set.")
+
+    credential = DefaultAzureCredential()
+    secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
+    logger.info("Fetching SendGrid API key from Azure Key Vault.")
+    return secret_client.get_secret("sendgrid-api-key").value
+
 def send_confirmation_email(to_email, booking_info):
+    """Send a booking confirmation email using SendGrid."""
     if not to_email or not booking_info:
         raise ValueError("Missing 'to_email' or 'booking_info'")
 
     try:
-        # Load vault URL from env
-        key_vault_url = os.environ.get("KEY_VAULT_URL")
-        if not key_vault_url:
-            raise ValueError("KEY_VAULT_URL environment variable is not set.")
+        sendgrid_api_key = get_sendgrid_api_key()
 
-        # Initialize secret client
-        credential = DefaultAzureCredential()
-        secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
-
-        # Fetch SendGrid API key
-        sendgrid_api_key = secret_client.get_secret("sendgrid-api-key").value
-        if not sendgrid_api_key:
-            raise ValueError("sendgrid-api-key not found in Key Vault.")
-
-        # Build the email
         message = Mail(
-            from_email=Email("your_verified_sender@example.com", name="Booking System"),
+            from_email=Email("stevenwielis9@gmail.com", name="Booking System"),
             to_emails=to_email,
             subject="Your Booking Confirmation",
             html_content=f"<strong>Your booking is confirmed:</strong><br>{booking_info}"
         )
         message.add_content(Content("text/plain", f"Your booking is confirmed:\n{booking_info}"))
 
-        # Send email
         sg = SendGridAPIClient(sendgrid_api_key)
         response = sg.send(message)
 
-        logging.info(f"Email sent to {to_email}. Status: {response.status_code}")
+        logger.info(f"Email sent to {to_email}. Status: {response.status_code}")
         return response.status_code
 
     except Exception as e:
-        logging.error(f"Failed to send email to {to_email}: {str(e)}")
+        logger.error(f"Failed to send email to {to_email}: {str(e)}")
         raise

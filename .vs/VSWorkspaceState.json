@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\app",
-    "\\app\\templates",
-    "\\reminder_function"
+    "\\app"
   ],
+  "SelectedNode": "\\app\\send_email.py",
   "PreviewInSolutionExplorer": false
 }
