@@ -1,7 +1,7 @@
 from flask import render_template, request, flash, redirect, url_for
 from datetime import datetime, timedelta
 from .models import db, Slot, Appointment
-from app.booking_service import get_available_slots, handle_booking, get_user_appointments, connect_db
+from app.booking_service import get_available_slots, handle_booking, get_user_appointments
 
 def init_routes(app):
     @app.route('/')
