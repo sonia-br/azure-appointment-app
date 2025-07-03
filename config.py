@@ -21,7 +21,8 @@ class Config:
     SECRET_KEY = get_secret('SECRET-KEY')
     SQLALCHEMY_DATABASE_URI = get_secret('DATABASE-URL') #'sqlite:///booking.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    # print("DB URI:", SQLALCHEMY_DATABASE_URI) debug
+    print("DB URI: MIKE WASOWSKI 1", SECRET_KEY)
+    print("DB URI: MIKE WASOWSKI 2", SQLALCHEMY_DATABASE_URI) #debug
 
     
     # Email configuration
