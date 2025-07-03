@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import os
 import logging
 from sendgrid import SendGridAPIClient
@@ -16,7 +19,8 @@ def send_confirmation_email(to_email, booking_info):
 
     try:
         # Get the SendGrid API key from Key Vault
-        sendgrid_api_key = _secret_client.get_secret("SENDGRID_API_KEY").value
+        sendgrid_api_key = _secret_client.get_secret("sendgrid-api-key").value
+
 
         # Build the email
         message = Mail(
