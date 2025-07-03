@@ -12,6 +12,7 @@ def get_secret(name, default=None):
     try:
         return client.get_secret(name).value
     except Exception:
+        print("MIKE WASOWSKI")
         return default
     
 
