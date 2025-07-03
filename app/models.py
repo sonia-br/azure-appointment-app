@@ -1,12 +1,13 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from sqlalchemy.dialects.mssql import BIT
 
 db = SQLAlchemy()
 
 class Slot(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     time = db.Column(db.String(10), nullable=False)
-    available = db.Column(db.Boolean, default=True)
+    available = db.Column(db.Integer, default=1, nullable=False)
 
 class Appointment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
