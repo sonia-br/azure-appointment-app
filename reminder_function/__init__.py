@@ -2,9 +2,18 @@ import datetime
 import logging
 from send_email import send_confirmation_email
 
-def main(mytimer: dict) -> None:
-    logging.info('Python timer function ran at %s', datetime.datetime.now())
+import azure.functions as func
 
-    # Example: send a reminder
-    send_confirmation_email("user@example.com", "Reminder: Your booking is tomorrow.")
+def main(mytimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()
+    logging.info('Timer trigger function ran at %s', utc_timestamp)
 
+    try:
+        # In production, replace this with a DB query for upcoming appointments
+        to_email = "user@example.com"
+        message = "Reminder: Your booking is tomorrow."
+
+        send_confirmation_email(to_email, message)
+
+    except Exception as e:
+        logging.error(f"Error sending reminder email: {e}")
