@@ -1,5 +1,6 @@
 from flask import render_template, request, flash, redirect, url_for
 from datetime import datetime, timedelta
+from .models import db, Slot, Appointment
 from app.booking_service import get_available_slots, handle_booking, get_user_appointments, connect_db
 
 def init_routes(app):
@@ -11,16 +12,7 @@ def init_routes(app):
     @app.route('/slots')
     def view_slots():
         """View available appointment slots"""
-        # TODO: Integrate with database to get actual slots
-        # This is a placeholder for demonstration
-        # slots = [
-        #     {'time': '09:00', 'available': True},
-        #     {'time': '10:00', 'available': True},
-        #     {'time': '11:00', 'available': False},
-        #     {'time': '14:00', 'available': True},
-        # ]
-        db_slots = get_available_slots()
-        slots = [{'id': row[0], 'time': row[1], 'available': True} for row in db_slots]
+        slots = Slot.query.all()
         return render_template('slots.html', slots=slots)
 
     @app.route('/book', methods=['GET', 'POST'])
@@ -50,6 +42,22 @@ def init_routes(app):
             except ValueError as e:
                 flash(str(e), 'error')
                 return redirect(url_for('book_appointment'))
+
+            slot = Slot.query.filter_by(id=slot_id, available=True).first()
+            if not slot:
+                flash('Selected slot is not available.', 'error')
+                return redirect(url_for('book_appointment'))
+
+            # Save booking to database
+            appointment = Appointment(name=name, email=email, slot_id=slot.id)
+            slot.available = False
+            db.session.add(appointment)
+            db.session.commit()
+            flash('Appointment booked successfully!', 'success')
+            return redirect(url_for('index'))
+
+        slots = Slot.query.filter_by(available=True).all()
+        return render_template('book.html', slots=slots)
             
         return render_template('book.html',
                            slot_time=request.args.get('slot_time', ''),
