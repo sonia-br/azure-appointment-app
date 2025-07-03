@@ -56,10 +56,8 @@
               "RelativeDocumentMoniker": "send_email.py",
               "ToolTip": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\send_email.py",
               "RelativeToolTip": "send_email.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-07-03T15:58:25.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-03T15:58:25.57Z"
             },
             {
               "$type": "Document",
@@ -96,8 +94,7 @@
               "RelativeToolTip": "reminder_function\\__init__.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-05-15T22:22:31.227Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T22:22:31.227Z"
             },
             {
               "$type": "Document",
@@ -109,8 +106,7 @@
               "RelativeToolTip": "app\\__init__.py",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-05-15T22:22:17.859Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T22:22:17.859Z"
             },
             {
               "$type": "Document",
@@ -120,7 +116,7 @@
               "RelativeDocumentMoniker": "run.py",
               "ToolTip": "C:\\Users\\S\\Documents\\GitHub\\azure-appointment-app\\azure-appointment-app\\run.py",
               "RelativeToolTip": "run.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
               "WhenOpened": "2025-05-15T22:20:04.11Z",
               "EditorCaption": ""
@@ -135,8 +131,7 @@
               "RelativeToolTip": "requirements.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-15T22:19:55.648Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T22:19:55.648Z"
             },
             {
               "$type": "Document",
@@ -148,8 +143,7 @@
               "RelativeToolTip": "app\\create_event.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-05-15T22:18:36.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T22:18:36.256Z"
             },
             {
               "$type": "Document",
