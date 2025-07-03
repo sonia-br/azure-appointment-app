@@ -6,7 +6,7 @@ db = SQLAlchemy()
 
 class Slot(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    time = db.Column(db.String(10), nullable=False)
+    time = db.Column(db.DateTime, nullable=False)
     available = db.Column(db.Integer, default=1, nullable=False)
 
 class Appointment(db.Model):

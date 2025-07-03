@@ -18,10 +18,9 @@ def get_secret(name, default=None):
 class Config:
     """Base configuration."""
     SECRET_KEY = get_secret('SECRET-KEY')
-    # this needs do be updated?
-    SQLALCHEMY_DATABASE_URI = get_secret('DATABASE-URL', 'sqlite:///booking.db') 
+    SQLALCHEMY_DATABASE_URI = get_secret('DATABASE-URL') #'sqlite:///booking.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    print("DB URI:", SQLALCHEMY_DATABASE_URI)
+    # print("DB URI:", SQLALCHEMY_DATABASE_URI) debug
 
     
     # Email configuration
