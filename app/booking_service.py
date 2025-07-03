@@ -4,12 +4,12 @@ from sqlalchemy.exc import IntegrityError
 
 
 def get_available_slots():
-    slots = Slot.query.filter_by(Slot.available == 1).all()
+    slots = Slot.query.filter(Slot.available == 1).all()
     print("Available slots:", slots)  # Debug
     return slots
 
 def check_available_slots(slot_id):
-    slot = Slot.query.filter_by(Slot.id == slot_id, Slot.available == 1).first()
+    slot = Slot.query.filter(Slot.id == slot_id, Slot.available == 1).first()
     return slot is not None
 
 def save_booking(name, email, mobile_number, slot_id):
