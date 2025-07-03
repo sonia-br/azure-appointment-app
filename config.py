@@ -17,16 +17,17 @@ def get_secret(name, default=None):
 
 class Config:
     """Base configuration."""
-    SECRET_KEY = get_secret('SECRET_KEY', 'dev-key-please-change-in-production')
-    SQLALCHEMY_DATABASE_URI = get_secret('DATABASE_URL', 'sqlite:///booking.db')
+    SECRET_KEY = get_secret('SECRET-KEY')
+    # this needs do be updated?
+    SQLALCHEMY_DATABASE_URI = get_secret('DATABASE-URL', 'sqlite:///booking.db') 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     # Email configuration
-    MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.gmail.com')
-    MAIL_PORT = int(os.environ.get('MAIL_PORT', 587))
-    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', True)
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = 'apikey'
+    MAIL_PASSWORD = get_secret('sendgrid-api-key')
     
     # Appointment settings
     APPOINTMENT_DURATION = 30  # minutes
