@@ -50,7 +50,7 @@ def validate_name(name):
     return True
 
 def validate_email(input):
-    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$" #pattern name@domain.com
+    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" #pattern name@domain.com
     email = re.fullmatch(pattern, input) #checks if fully matches pattern
     return bool(email)
     
