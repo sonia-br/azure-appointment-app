@@ -1,6 +1,6 @@
 import datetime
 import logging
-from send_email import send_confirmation_email
+from app.send_email import send_confirmation_email
 
 import azure.functions as func
 

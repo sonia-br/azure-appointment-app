@@ -8,19 +8,24 @@ from sendgrid.helpers.mail import Mail, Email, Content
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
 
-# Cache clients for performance
-_credential = DefaultAzureCredential()
-_key_vault_url = os.environ.get("KEY_VAULT_URL")  # e.g. "https://your-vault.vault.azure.net"
-_secret_client = SecretClient(vault_url=_key_vault_url, credential=_credential)
-
 def send_confirmation_email(to_email, booking_info):
     if not to_email or not booking_info:
         raise ValueError("Missing 'to_email' or 'booking_info'")
 
     try:
-        # Get the SendGrid API key from Key Vault
-        sendgrid_api_key = _secret_client.get_secret("sendgrid-api-key").value
+        # Load vault URL from env
+        key_vault_url = os.environ.get("KEY_VAULT_URL")
+        if not key_vault_url:
+            raise ValueError("KEY_VAULT_URL environment variable is not set.")
 
+        # Initialize secret client
+        credential = DefaultAzureCredential()
+        secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
+
+        # Fetch SendGrid API key
+        sendgrid_api_key = secret_client.get_secret("sendgrid-api-key").value
+        if not sendgrid_api_key:
+            raise ValueError("sendgrid-api-key not found in Key Vault.")
 
         # Build the email
         message = Mail(
@@ -31,7 +36,7 @@ def send_confirmation_email(to_email, booking_info):
         )
         message.add_content(Content("text/plain", f"Your booking is confirmed:\n{booking_info}"))
 
-        # Send the email
+        # Send email
         sg = SendGridAPIClient(sendgrid_api_key)
         response = sg.send(message)
 

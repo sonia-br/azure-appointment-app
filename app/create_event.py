@@ -5,6 +5,8 @@ import os
 import logging
 import requests
 from msal import ConfidentialClientApplication
+from azure.identity import DefaultAzureCredential
+
 
 def get_access_token():
     try:

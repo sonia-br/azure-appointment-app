@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\app",
+    "\\app\\templates",
     "\\reminder_function"
   ],
-  "SelectedNode": "\\run.py",
   "PreviewInSolutionExplorer": false
 }
