@@ -17,6 +17,7 @@ class Appointment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), nullable=False)
+    mobile_number = db.Column(db.String(20), nullable=False)
     slot_id = db.Column(db.Integer, db.ForeignKey('slots.id'), nullable=False)
     booked_at = db.Column(db.DateTime, default=datetime.utcnow)
 
