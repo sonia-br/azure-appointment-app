@@ -4,9 +4,9 @@ from sqlalchemy.exc import IntegrityError
 
 
 def get_available_slots():
-    slots = Slot.query.all()
-    print("All slots:", [(s.id, s.time, s.available) for s in slots])  # debug
-    return Slot.query.filter(Slot.available == 1).all()
+    slots = Slot.query.filter(Slot.available == 1).all()
+    # print("All slots:", [(s.id, s.time, s.available) for s in slots])  # debug
+    return slots
 
 def check_available_slots(slot_id):
     slot = Slot.query.filter(Slot.id == slot_id, Slot.available == 1).first()
