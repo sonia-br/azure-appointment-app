@@ -17,4 +17,4 @@ class Appointment(db.Model):
     email = db.Column(db.String(120), nullable=False)
     slot_id = db.Column(db.Integer, db.ForeignKey('slot.id'), nullable=False)
     booked_at = db.Column(db.DateTime, default=datetime.utcnow)
-    slot = db.relationship('Slot', backref=db.backref('appointments', lazy=True))
+    slot = db.relationship('slots', backref=db.backref('appointments', lazy=True))
