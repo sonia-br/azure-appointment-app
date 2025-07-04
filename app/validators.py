@@ -55,10 +55,7 @@ def validate_email(input):
     return bool(email)
     
 def validate_mobile(number):
-    if len(number) <= 12:
-        return number[0] == "0" and number[1] == "1" and number.isdigit()
-    else:
-        return False
+    return len(number) == 11 and number.isdigit()
     
  
 

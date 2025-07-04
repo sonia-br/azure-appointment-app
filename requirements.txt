@@ -19,3 +19,9 @@ msal==1.26.0
 azure-functions==1.18.0
 azure-identity==1.15.0
 azure-keyvault-secrets==4.8.0
+
+sqlalchemy
+psycopg2-binary  # if using PostgreSQL
+# or
+pyodbc           # if using SQL Server (only if needed)
+
