@@ -25,6 +25,7 @@ def save_booking(name, email, mobile_number, slot_id):
     appointment = Appointment(
         name=name,
         email=email,
+        mobile_number=mobile_number,
         slot_id=slot_id
     )
     slot.available = False
